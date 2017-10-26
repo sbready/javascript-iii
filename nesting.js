@@ -36,12 +36,28 @@ var employees = [{
 //  2. If the employee's first name is Lorie, change her department to 'HR'.
 //  3. Return the updated employee array.
 
-// Code here
+var employeeUpdater = (obj) => {
+  for(var i = 0; i < obj.length; i++){
+    console.log(obj[i].firstName)
+    if(obj[i].firstName === 'Theo'){
+      console.log(obj[i])
+      obj.splice(i, 1);
+      console.log(obj[i])
+    }
+    if(obj[i].firstName === 'Lorie'){
+      obj[i].department = 'HR';
+    }
+    // for(let key in obj[i])
+    //   if (obj[i][key] === 'Theo') {
+    //    obj.splice(i, 1);
+    //  }else if(obj[i][key] === 'Lorie'){
+    //     obj[i]['department'] = 'HR';
+    // }
+  }
+  return obj;
+}
 
-
-
-
-
+employeeUpdater(employees)
 
 
 // === PROBLEM 2 ==========
@@ -55,7 +71,17 @@ var employees = [{
 var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 
 // Code here
-
+var removeDuplicates = array => {
+  for(var i = 0; i < array.length; i++){
+    for(var j = i + 1; j < array.length; j++) {
+      if( array[i] === array[j]){
+        array.splice(j, 1);
+        j--;
+      }
+    }
+  }
+  return array;
+}
 
 
 
