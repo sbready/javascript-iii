@@ -85,18 +85,24 @@ let ordersTotal = orders.map(function(element, index, array){
 // We want to create a total for the purchases, but only want to total Bob's
 // purchases
 
-const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
-{"owner":"Bob","price":73},{"owner":"Barry","price":57},{"owner":"Barry","price":128},
+const purchases = [
+    {"owner":"Barry","price":103},
+    {"owner":"Bob","price":75},
+    {"owner":"Bob","price":73},
+    {"owner":"Barry","price":57},{"owner":"Barry","price":128},
 {"owner":"Bob","price":119},{"owner":"Barry","price":133},{"owner":"Barry","price":27},
 {"owner":"Barry","price":138},{"owner":"Bob","price":68},{"owner":"Bob","price":50},
 {"owner":"Barry","price":9},{"owner":"Bob","price":123},{"owner":"Bob","price":135},
 {"owner":"Barry","price":30},{"owner":"Barry","price":129},{"owner":"Barry","price":38},
 {"owner":"Bob","price":133},{"owner":"Barry","price":109},{"owner":"Bob","price":115}]
 
-let bobsTotal = purchases.reduce(function(total, element, index, array){
-    for(let key in element){
-        if(element[key] === 'Bob'){
-            return total + element.price;
-        }
+let bobsTotal = purchases.reduce( (total, element, index, array) => {
+    console.log(element.owner)
+    if( element.owner === 'Bob'){
+        return total + element.price;
+    } else {
+        return total + 0;
     }
-})
+}, 0)
+//.reduce(function, starting Total)
+bobsTotal
